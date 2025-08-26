@@ -44,109 +44,48 @@
 			background: #dbeafe;
 		}
 	</style>
+	<!-- jQuery ve DataTables CDN -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+	<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 </head>
 
 <body>
 	<div class="container">
-		<div style="display: flex; justify-content: space-between; align-items: center;">
-			<h1 style="margin-bottom:0;">İngilizce - Türkçe Kelimeler</h1>
-			<div style="display:flex; gap:8px; align-items:center;">
+		<div style="display: flex; flex-direction:column; align-items: flex-start; gap: 0;">
+			
+			<h1 style="margin-bottom:16px; align-self:center;">İngilizce - Türkçe Kelimeler</h1>
+			<div style="display:flex; gap:16px; align-items:center; margin-bottom:16px; align-self:center;">
 				<label style="font-size:0.95em;">
 					<input type="checkbox" id="toggleEnglish" checked style="vertical-align:middle;"> İngilizceyi Göster
 				</label>
 				<label style="font-size:0.95em;">
 					<input type="checkbox" id="toggleTurkish" checked style="vertical-align:middle;"> Türkçeyi Göster
 				</label>
-				<button id="addWordBtn" style="margin-right:8px; margin-top:8px; padding:8px 16px; background:#2a3a5e; color:#fff; border:none; border-radius:6px; cursor:pointer; font-size:1em;">+ Kayıt Ekle</button>
+				<button id="addWordBtn" style="padding:2px 12px; background:#2a3a5e; color:#fff; border:none; border-radius:6px; cursor:pointer; font-size:1em;">+</button>
+				<input type="file" id="csvUpload" accept=".csv" style="display:none" />
+				<button id="uploadCsvBtn" style="padding:2px 12px; background:#6c757d; color:#fff; border:none; border-radius:6px; cursor:pointer; font-size:1em;">CSV Yükle</button>
+				<button id="clearTableBtn" style="padding:2px 12px; background:#e70615; color:#fff; border:none; border-radius:6px; cursor:pointer; font-size:1em;">Temizle</button>
 			</div>
+		</div>
+		<br />
+		<div style="display:flex; gap:16px; margin-bottom:12px">
+	<!-- Arama inputu kaldırıldı -->
 		</div>
 		<table id="wordsTable">
 			<thead>
 				<tr>
+					<th style="width:40px; text-align:center;">No</th>
 					<th>İngilizce</th>
 					<th>Türkçe</th>
 					<th style="width:90px; text-align:center;">İşlem</th>
 				</tr>
+				<!-- Arama inputu kaldırıldı, yukarıya taşındı -->
 			</thead>
 			<tbody>
 				<!-- ...existing code... -->
-				<tr><td>Triangle</td><td>Üçgen</td><td class="actions"></td></tr>
-				<tr><td>mysterious</td><td>gizemli</td><td class="actions"></td></tr>
-				<tr><td>mystery</td><td>gizem</td><td class="actions"></td></tr>
-				<tr><td>Notable</td><td>Önemli</td><td class="actions"></td></tr>
-				<tr><td>celebrity</td><td>ünlü</td><td class="actions"></td></tr>
-				<tr><td>celebrate</td><td>kutlama</td><td class="actions"></td></tr>
-				<tr><td>alien</td><td>uzaylı</td><td class="actions"></td></tr>
-				<tr><td>Makeup</td><td>Makyaj</td><td class="actions"></td></tr>
-				<tr><td>poster</td><td>poster</td><td class="actions"></td></tr>
-				<tr><td>gloomy</td><td>kasvetli</td><td class="actions"></td></tr>
-				<tr><td>gaunt</td><td>zayıf</td><td class="actions"></td></tr>
-				<tr><td>rub</td><td>ovmak</td><td class="actions"></td></tr>
-				<tr><td>smeared</td><td>bulaşmış</td><td class="actions"></td></tr>
-				<tr><td>smudge</td><td>lekelemek</td><td class="actions"></td></tr>
-				<tr><td>wipe</td><td>silmek</td><td class="actions"></td></tr>
-				<tr><td>embrace</td><td>kucaklamak</td><td class="actions"></td></tr>
-				<tr><td>forecasting</td><td>tahmin etmek</td><td class="actions"></td></tr>
-				<tr><td>distractions</td><td>dikkat dağıtıcı şeyler</td><td class="actions"></td></tr>
-				<tr><td>bare</td><td>çıplak</td><td class="actions"></td></tr>
-				<tr><td>barrier</td><td>bariyer</td><td class="actions"></td></tr>
-				<tr><td>blister</td><td>kabarcık</td><td class="actions"></td></tr>
-				<tr><td>pale</td><td>soluk</td><td class="actions"></td></tr>
-				<tr><td>martial</td><td>dövüş</td><td class="actions"></td></tr>
-				<tr><td>intervention</td><td>müdahale</td><td class="actions"></td></tr>
-				<tr><td>tune</td><td>melodi</td><td class="actions"></td></tr>
-				<tr><td>collapse</td><td>çöküş</td><td class="actions"></td></tr>
-				<tr><td>engagement</td><td>katılım</td><td class="actions"></td></tr>
-				<tr><td>fatigue</td><td>yorgunluğu</td><td class="actions"></td></tr>
-				<tr><td>measure</td><td>ölçüsü</td><td class="actions"></td></tr>
-				<tr><td>fertility</td><td>doğurganlık</td><td class="actions"></td></tr>
-				<tr><td>pesticide</td><td>pestisit</td><td class="actions"></td></tr>
-				<tr><td>exposure</td><td>maruziyeti</td><td class="actions"></td></tr>
-				<tr><td>underestimated</td><td>küçümseniyor</td><td class="actions"></td></tr>
-				<tr><td>contributes</td><td>katkıda bulunuyor</td><td class="actions"></td></tr>
-				<tr><td>rainwater</td><td>yağmur suyu</td><td class="actions"></td></tr>
-				<tr><td>fortification</td><td>tahkimat</td><td class="actions"></td></tr>
-				<tr><td>Companion</td><td>Refakatçi</td><td class="actions"></td></tr>
-				<tr><td>heartbeat</td><td>kalp atışı</td><td class="actions"></td></tr>
-				<tr><td>nanny</td><td>dadı</td><td class="actions"></td></tr>
-				<tr><td>supplement</td><td>ek</td><td class="actions"></td></tr>
-				<tr><td>inequality</td><td>eşitsizlik</td><td class="actions"></td></tr>
-				<tr><td>brisk</td><td>hızlı</td><td class="actions"></td></tr>
-				<tr><td>marginalized</td><td>marjinalleştirilmiş</td><td class="actions"></td></tr>
-				<tr><td>individual</td><td>birey</td><td class="actions"></td></tr>
-				<tr><td>plagiarized</td><td>çalıntı</td><td class="actions"></td></tr>
-				<tr><td>constitutional</td><td>anayasaya uygun</td><td class="actions"></td></tr>
-				<tr><td>uphold</td><td>destekleyici</td><td class="actions"></td></tr>
-				<tr><td>upbeat</td><td>iyimser</td><td class="actions"></td></tr>
-				<tr><td>catchy</td><td>akılda kalıcı</td><td class="actions"></td></tr>
-				<tr><td>Supreme</td><td>Yüce</td><td class="actions"></td></tr>
-				<tr><td>claim</td><td>iddia</td><td class="actions"></td></tr>
-				<tr><td>damage</td><td>zarar</td><td class="actions"></td></tr>
-				<tr><td>composer</td><td>besteci</td><td class="actions"></td></tr>
-				<tr><td>accused</td><td>suçlanan</td><td class="actions"></td></tr>
-				<tr><td>unconscious</td><td>bilinçsiz</td><td class="actions"></td></tr>
-				<tr><td>slender</td><td>ince</td><td class="actions"></td></tr>
-				<tr><td>attachment</td><td>EK</td><td class="actions"></td></tr>
-				<tr><td>agility</td><td>çeviklik</td><td class="actions"></td></tr>
-				<tr><td>comply</td><td>uymak</td><td class="actions"></td></tr>
-				<tr><td>rival</td><td>rakip</td><td class="actions"></td></tr>
-				<tr><td>sue</td><td>dava açmak</td><td class="actions"></td></tr>
-				<tr><td>violating</td><td>ihlal etmek</td><td class="actions"></td></tr>
-				<tr><td>exclusive</td><td>münhasır</td><td class="actions"></td></tr>
-				<tr><td>monopoly</td><td>tekel</td><td class="actions"></td></tr>
-				<tr><td>tribe</td><td>kabile</td><td class="actions"></td></tr>
-				<tr><td>representatives</td><td>temsilcileri</td><td class="actions"></td></tr>
-				<tr><td>represent</td><td>temsil etmek</td><td class="actions"></td></tr>
-				<tr><td>present</td><td>sunmak</td><td class="actions"></td></tr>
-				<tr><td>dip</td><td>daldırmak</td><td class="actions"></td></tr>
-				<tr><td>landmarks</td><td>tarihi yapılar</td><td class="actions"></td></tr>
-				<tr><td>trademark</td><td>ticari marka</td><td class="actions"></td></tr>
-				<tr><td>doubtful</td><td>şüpheli</td><td class="actions"></td></tr>
-				<tr><td>commercialize</td><td>ticarileştirmek</td><td class="actions"></td></tr>
-				<tr><td>endeavors</td><td>çabalar</td><td class="actions"></td></tr>
-				<tr><td>solely</td><td>sadece</td><td class="actions"></td></tr>
-				<tr><td>demand</td><td>talep</td><td class="actions"></td></tr>
-				<tr><td>leisure</td><td>eğlence</td><td class="actions"></td></tr>
+				<tr><td>1</td><td>İngilizce</td><td>Türkçe</td><td class="actions"></td></tr>
+				
 				<!-- ...devamı için ekleme yapılabilir... -->
 			</tbody>
 		</table>
@@ -239,7 +178,7 @@
 		const tr = turkishInput.value.trim();
 		if(eng && tr) {
 			if(editRow) {
-				editRow.cells[0].innerText = eng;
+				editRow.cells[1].innerText = eng;
 				editRow.cells[1].innerText = tr;
 			} else {
 				const table = document.getElementById('wordsTable').getElementsByTagName('tbody')[0];
@@ -259,58 +198,213 @@
 		if(e.target === addModal) addModal.style.display = 'none';
 	};
 
-	// Satırlara sil/düzenle butonları ekle
-	function addActionButtons() {
-		document.querySelectorAll('#wordsTable tbody tr').forEach(row => {
-			// İngilizce hücresine çift tıklama
-			row.cells[0].ondblclick = function() {
-				showToast(row.cells[1].innerText);
-			};
-			// Türkçe hücresine çift tıklama
-			row.cells[1].ondblclick = function() {
-				showToast(row.cells[0].innerText);
-			};
-			let cell = row.querySelector('.actions');
-			if(cell && cell.children.length === 0) {
-				// Düzenle butonu
-				const editBtn = document.createElement('button');
-				editBtn.title = 'Düzenle';
-				editBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 13.5V16h2.5l7.1-7.1a1 1 0 0 0-1.4-1.4L5 14.6V13.5z" stroke="#2a3a5e" stroke-width="1.5"/></svg>';
-				editBtn.style.background = 'none';
-				editBtn.style.border = 'none';
-				editBtn.style.cursor = 'pointer';
-				editBtn.style.marginRight = '8px';
-				editBtn.onclick = function() {
-					if(confirm('Bu kelimeyi düzenlemek istediğinize emin misiniz?')) {
-						modalTitle.textContent = 'Kelimeleri Düzenle';
-						englishInput.value = row.cells[0].innerText;
-						turkishInput.value = row.cells[1].innerText;
-						editRow = row;
-						addModal.style.display = 'flex';
-					}
-				};
-				// Sil butonu
-				const deleteBtn = document.createElement('button');
-				deleteBtn.title = 'Sil';
-				deleteBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 6l8 8M14 6l-8 8" stroke="#d32f2f" stroke-width="2"/></svg>';
-				deleteBtn.style.background = 'none';
-				deleteBtn.style.border = 'none';
-				deleteBtn.style.cursor = 'pointer';
-				deleteBtn.onclick = function() {
-					if(confirm('Bu kelimeyi silmek istediğinize emin misiniz?')) {
-						row.remove();
-					}
-				};
-				cell.appendChild(editBtn);
-				cell.appendChild(deleteBtn);
-			}
-		});
-	}
-	// Sayfa yüklenince butonları ekle
-	window.onload = function() {
-		addActionButtons();
-		updateColumnVisibility();
-	};
-	</script>
+	function saveTableToStorage() {
+    const rows = document.querySelectorAll('#wordsTable tbody tr');
+    const data = [];
+    rows.forEach(row => {
+        if(row.cells.length === 4) {
+            data.push({
+                english: row.cells[1].innerText,
+                turkish: row.cells[2].innerText
+            });
+        }
+    });
+    localStorage.setItem('kelimeTablosu', JSON.stringify(data));
+}
+
+function loadTableFromStorage() {
+    const table = document.getElementById('wordsTable').getElementsByTagName('tbody')[0];
+    table.innerHTML = '';
+    const data = JSON.parse(localStorage.getItem('kelimeTablosu') || '[]');
+    data.forEach(item => {
+        addWordToTable(item.english, item.turkish);
+    });
+}
+
+window.onload = function() {
+    loadTableFromStorage();
+    addActionButtons();
+    updateColumnVisibility();
+    // Kolon göster/gizle
+    document.getElementById('toggleEnglish').onchange = function() {
+        const show = this.checked;
+        document.querySelectorAll('#wordsTable th:nth-child(2), #wordsTable td:nth-child(2)').forEach(cell => {
+            cell.style.display = show ? '' : 'none';
+        });
+    };
+    document.getElementById('toggleTurkish').onchange = function() {
+        const show = this.checked;
+        document.querySelectorAll('#wordsTable th:nth-child(3), #wordsTable td:nth-child(3)').forEach(cell => {
+            cell.style.display = show ? '' : 'none';
+        });
+    };
+    document.getElementById('clearTableBtn').onclick = function() {
+        if(confirm('Tüm kelimeleri silmek istediğinize emin misiniz?')) {
+            const tbody = document.getElementById('wordsTable').getElementsByTagName('tbody')[0];
+            while(tbody.firstChild) tbody.removeChild(tbody.firstChild);
+            saveTableToStorage();
+        }
+    };
+    document.getElementById('uploadCsvBtn').onclick = function() {
+        document.getElementById('csvUpload').click();
+    };
+    document.getElementById('csvUpload').onchange = function(e) {
+        showLoading(true);
+        const file = e.target.files[0];
+        if (!file) { showLoading(false); return; }
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+            const text = evt.target.result;
+            const lines = text.split(/\r?\n/).filter(l => l.trim());
+            if (lines.length < 2) {
+                alert('CSV dosyası en az başlık ve bir veri satırı içermeli!');
+                showLoading(false);
+                return;
+            }
+            // Her zaman ilk satırı başlık olarak atla
+            for (let i = 1; i < lines.length; i++) {
+                const cols = lines[i].split(/,|;|\t/);
+                if (cols.length < 2) continue;
+                let eng = cols[0].replace(/"/g, '').trim();
+                let tr = cols[1].replace(/"/g, '').trim();
+                // Türkçe karakterleri doğru şekilde işle
+                eng = decodeURIComponent(escape(eng));
+                tr = decodeURIComponent(escape(tr));
+                if (!eng || !tr) continue;
+                let exists = false;
+                document.querySelectorAll('#wordsTable tbody tr').forEach(row => {
+                    const tdEng = row.cells[1];
+                    const tdTr = row.cells[2];
+                    if (tdEng && tdTr && tdEng.innerText.trim() === eng && tdTr.innerText.trim() === tr) {
+                        exists = true;
+                    }
+                });
+                if (!exists) {
+                    addWordToTable(eng, tr);
+                }
+            }
+            setTimeout(() => {
+                addActionButtons();
+                saveTableToStorage();
+                if ($.fn.DataTable.isDataTable('#wordsTable')) {
+                    $('#wordsTable').DataTable().destroy();
+                }
+                $('#wordsTable').DataTable({
+                    language: {
+                        url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/tr.json'
+                    },
+                    paging: true,
+                    searching: true,
+                    ordering: true,
+                    info: true
+                });
+                showLoading(false);
+                alert('CSV kelimeleri başarıyla eklendi!');
+            }, 100);
+        };
+        reader.readAsText(file, 'UTF-8');
+    };
+}
+
+function addWordToTable(english, turkish) {
+    const table = document.getElementById('wordsTable').getElementsByTagName('tbody')[0];
+    const newRow = table.insertRow();
+    newRow.insertCell(0).innerText = table.rows.length + 1;
+    const engCell = newRow.insertCell(1);
+    engCell.innerText = english;
+    engCell.ondblclick = function(e) {
+        const turCell = newRow.cells[2];
+        if (turCell) {
+            showToast(turCell.innerText);
+        }
+    };
+    newRow.insertCell(2).innerText = turkish;
+    const actionsCell = newRow.insertCell(3);
+    actionsCell.className = 'actions';
+    saveTableToStorage();
+}
+
+function addActionButtons() {
+    document.querySelectorAll('#wordsTable tbody tr').forEach((row, idx) => {
+        if(row.cells.length === 4) {
+            row.cells[0].innerText = (idx + 1);
+        }
+        row.cells[1].ondblclick = function() {
+            showToast(row.cells[2].innerText);
+        };
+        let cell = row.querySelector('.actions');
+        if(cell && cell.children.length === 0) {
+            const editBtn = document.createElement('button');
+            editBtn.title = 'Düzenle';
+            editBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 13.5V16h2.5l7.1-7.1a1 1 0 0 0-1.4-1.4L5 14.6V13.5z" stroke="#2a3a5e" stroke-width="1.5"/></svg>';
+            editBtn.style.background = 'none';
+            editBtn.style.border = 'none';
+            editBtn.style.cursor = 'pointer';
+            editBtn.style.marginRight = '8px';
+            editBtn.onclick = function() {
+                if(confirm('Bu kelimeyi düzenlemek istediğinize emin misiniz?')) {
+                    modalTitle.textContent = 'Kelimeleri Düzenle';
+                    englishInput.value = row.cells[1].innerText;
+                    turkishInput.value = row.cells[2].innerText;
+                    editRow = row;
+                    addModal.style.display = 'flex';
+                }
+            };
+            const deleteBtn = document.createElement('button');
+            deleteBtn.title = 'Sil';
+            deleteBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 6l8 8M14 6l-8 8" stroke="#d32f2f" stroke-width="2"/></svg>';
+            deleteBtn.style.background = 'none';
+            deleteBtn.style.border = 'none';
+            deleteBtn.style.cursor = 'pointer';
+            deleteBtn.onclick = function() {
+                if(confirm('Bu kelimeyi silmek istediğinize emin misiniz?')) {
+                    row.remove();
+                    saveTableToStorage();
+                    addActionButtons();
+                }
+            };
+            cell.appendChild(editBtn);
+            cell.appendChild(deleteBtn);
+        }
+    });
+}
+
+$(document).ready(function() {
+    $('#wordsTable').DataTable({
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/tr.json'
+        },
+        paging: true,
+        searching: true,
+        ordering: true,
+        info: true
+    });
+});
+// Loading gösterme fonksiyonu
+function showLoading(show) {
+    let loading = document.getElementById('csvLoading');
+    if (!loading) {
+        loading = document.createElement('div');
+        loading.id = 'csvLoading';
+        loading.style.position = 'fixed';
+        loading.style.top = '0';
+        loading.style.left = '0';
+        loading.style.width = '100vw';
+        loading.style.height = '100vh';
+        loading.style.background = 'rgba(255,255,255,0.7)';
+        loading.style.display = 'flex';
+        loading.style.alignItems = 'center';
+        loading.style.justifyContent = 'center';
+        loading.style.zIndex = '99999';
+        loading.innerHTML = '<div style="padding:32px 48px; background:#fff; border-radius:12px; box-shadow:0 2px 8px #0002; font-size:1.3em; color:#2a3a5e; display:flex; align-items:center; gap:16px;"><span class="loader" style="width:32px; height:32px; border:4px solid #e3eafc; border-top:4px solid #2a3a5e; border-radius:50%; display:inline-block; animation:spin 1s linear infinite;"></span> CSV yükleniyor...</div>';
+        document.body.appendChild(loading);
+        // CSS animasyonu ekle
+        const style = document.createElement('style');
+        style.innerHTML = '@keyframes spin { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }';
+        document.head.appendChild(style);
+    }
+    loading.style.display = show ? 'flex' : 'none';
+}
+</script>
 </body>
 </html>
